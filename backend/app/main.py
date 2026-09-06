@@ -34,7 +34,7 @@ def firestore():
         import firebase_admin
         from firebase_admin import credentials, firestore
         if not firebase_admin._apps:
-            service_json = os.getenv("FIREBASE_SERVICE_ACCOUNT_JSON")
+            service_json = os.getenv("FIREBASE_SERVICE_ACCOUNT_JSON") or os.getenv("FIREBASE_CREDENTIALS_JSON")
             service_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
             if service_json:
                 cred = credentials.Certificate(json.loads(service_json))
