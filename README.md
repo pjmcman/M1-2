@@ -1,6 +1,19 @@
 # Firebase Project
 
-홍성군 숙박업 분석을 위한 관리자용 웹앱 프로젝트입니다. 현재는 Firebase Admin SDK와 관리자 데이터 관리에만 집중하며, 기존 Vercel 공개 웹앱과의 연동은 마지막 단계에서 진행합니다.
+홍성군 숙박업 분석을 위한 관리자용 웹앱 프로젝트입니다. 기존 온기로 Vercel 웹앱에는 관리자 대시보드 링크를 연결하고, 데이터·AI 백엔드는 Render에서 운영합니다.
+
+## 최종 배포 현황
+
+- GitHub 백엔드: [pjmcman/M1-2](https://github.com/pjmcman/M1-2)
+- GitHub 프론트: [pjmcman/B2-3](https://github.com/pjmcman/B2-3)
+- Render API: [https://m1-2-egj5.onrender.com](https://m1-2-egj5.onrender.com)
+- Swagger: [https://m1-2-egj5.onrender.com/docs](https://m1-2-egj5.onrender.com/docs)
+- Health check: [https://m1-2-egj5.onrender.com/health](https://m1-2-egj5.onrender.com/health)
+- 기존 온기로 웹앱: [https://b2-3-psi.vercel.app](https://b2-3-psi.vercel.app)
+- 백엔드 최종 수정 커밋: `1363370`
+- Vercel 관리자 링크 커밋: `ed026e6`
+
+Render 서비스와 Swagger는 배포되어 있으며, `FIREBASE_CREDENTIALS_JSON` 또는 `FIREBASE_SERVICE_ACCOUNT_JSON` 환경변수로 Firebase 서비스 계정을 연결합니다.
 
 ## 설치
 
@@ -59,18 +72,26 @@ uvicorn backend.app.main:app --host 127.0.0.1 --port 8000
 - Swagger: `http://127.0.0.1:8000/docs`
 - 상태 확인: `http://127.0.0.1:8000/health`
 
+미션 API:
+
+- `POST /api/data`, `GET /api/data`, `PUT /api/data/{id}`, `DELETE /api/data/{id}`
+- `GET /api/data/summary`
+- `POST /api/chat`
+- `POST /api/conversations`, `GET /api/conversations`, `GET /api/conversations/{id}`, `DELETE /api/conversations/{id}`
+
 ## Render 배포
 
 Render에서 이 저장소를 선택하면 `render.yaml`을 기준으로 백엔드가 배포됩니다.
 
 - Build Command: `pip install -r requirements.txt`
 - Start Command: `uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT`
-- 필수 환경변수: `FIREBASE_SERVICE_ACCOUNT_JSON`, `OPENAI_API_KEY`, `ALLOWED_ORIGINS`
+- 필수 환경변수: `FIREBASE_CREDENTIALS_JSON` 또는 `FIREBASE_SERVICE_ACCOUNT_JSON`, `OPENAI_API_KEY`, `OPENAI_MODEL`, `ALLOWED_ORIGINS`
 
 서비스 계정 JSON과 API 키는 GitHub에 올리지 않고 Render 환경변수에 직접 입력합니다.
 
-## 작업 범위
+## 미션 및 보너스 현황
 
-- 현재 단계: 관리자용 데이터 생성, 조회, 분석
-- 인증 및 권한: 관리자 기능 기준으로 구성
-- 나중 단계: 기존 Vercel 웹앱과 API 또는 Firebase 데이터 연동
+- 완료: FastAPI, Firebase, 480개 시계열 데이터, CRUD, 요약 API, 대화 저장/불러오기, AI 채팅, Swagger, Render 배포, Vercel 관리자 링크
+- 보류: OpenAI 키 교체 및 비용 확인, 기존 Vercel AI 상담과 Render API의 세부 통합
+- 보너스 기반: Function Calling 도구 스키마, 통계 API 확장 구조
+- 추가 보너스: 그래프, CSV/JSON 내보내기, 다크 모드는 후속 작업
