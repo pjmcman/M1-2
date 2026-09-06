@@ -1,0 +1,8 @@
+node_modules/
+.venv/
+__pycache__/
+*.py[cod]
+.env
+service-account*.json
+*-firebase-adminsdk-*.json
+npm-debug.log*

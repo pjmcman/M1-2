@@ -1,0 +1,17 @@
+{
+  "name": "firebase-project",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js",
+    "rooms:generate": "node src/generate-tourism-data.js",
+    "rooms:seed": "node src/seed-tourism.js",
+    "rooms:report": "node src/tourism-report.js",
+    "admin:web": "node src/admin-server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "firebase-admin": "^13.0.2"
+  }
+}

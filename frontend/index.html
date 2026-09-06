@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>홍성군 숙박 데이터 AI 관리자</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <nav class="site-nav"><a class="site-logo" href="/">온기로 <span>ONKIRO</span></a><div class="site-links"><span class="active">관리자 대시보드</span><a href="https://b2-3-psi.vercel.app/" target="_blank">온기로 웹사이트 ↗</a></div></nav>
+    <header><div><p class="eyebrow">ONKIRO STAY / ADMIN</p><h1>온기로 1호점<br><em>운영 데이터 비서</em></h1><p class="sub">홍성의 빈집에 다시 온기를. 객실 운영 데이터를 관리하고, 저장된 흐름을 바탕으로 질문하세요.</p></div><span id="health" class="status">연결 확인 중</span></header>
+    <section class="summary-grid" id="summary"></section>
+    <div class="layout">
+      <section class="panel chat-panel"><div class="panel-head"><div><p class="eyebrow">CONVERSATION</p><h2>AI 분석 대화</h2></div><button class="ghost" id="newChat">새 대화</button></div><div id="messages" class="messages"><div class="assistant message"><b>데이터 비서</b><p>현재 숙박 데이터에 대해 무엇이 궁금한가요? 예: "최근 매출 추세가 어때?"</p></div></div><form id="chatForm" class="chat-form"><input id="chatInput" required placeholder="예: 이번 데이터의 매출 추세가 어때?"><button>질문하기</button></form></section>
+      <aside class="side-column"><section class="panel"><div class="panel-head"><div><p class="eyebrow">TIME SERIES</p><h2>데이터 관리</h2></div><button class="small" id="refreshData">새로고침</button></div><form id="dataForm" class="data-form"><input id="dataDate" type="date" required><input id="dataValue" type="number" min="0" step="1" placeholder="값" required><input id="dataMemo" placeholder="메모"><button>추가</button></form><div id="dataList" class="data-list"></div></section><section class="panel"><div class="panel-head"><div><p class="eyebrow">SAVED CHATS</p><h2>대화 기록</h2></div></div><div id="conversationList" class="conversation-list"></div></section></aside>
+    </div>
+  </main><script src="/app.js"></script>
+</body>
+</html>
